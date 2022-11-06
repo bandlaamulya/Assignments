@@ -1,65 +1,63 @@
-const register_form = document.getElementById("reg_form");
-if(register_form) register_form.addEventListener("submit", UserObject);
+let detailDoc = document.getElementById("enterDetails");
+if(detailDoc) detailDoc.addEventListener("submit", customerObj);
 
-function UserObject(e){
+function customerObj(e){
     e.preventDefault();
-    let firstname = ((document.getElementById("first_name")||{}).value)||"";
-    let lastname = ((document.getElementById("last_name")||{}).value)||"";
+    let f_name = ((document.getElementById("first_name")||{}).value)||"";
+    let l_name = ((document.getElementById("last_name")||{}).value)||"";
     let email_id = ((document.getElementById("email_id")||{}).value)||"";
     let password = ((document.getElementById("password")||{}).value)||"";
-    let note = ((document.getElementById("Note")||{}).value)||"";
-    const newUser = new User(firstname,lastname,email_id,password,note);
-    console.log(newUser); 
-    console.log(`email_id = ${email_id}`) 
-    console.log(`note = ${note}`) 
+    let note = ((document.getElementById("inputtext")||{}).value)||"";
+    const newCustomer = new customerFn(f_name,l_name,email_id,password,note);
+    console.log(newCustomer); 
 }
 
 
-function User(firstname,lastname,email_id,password,note){
-    this.firstname = firstname;
-    this.lastname = lastname; //document.getElementById("lastname").value;
-    this.email_id = email_id; //document.getElementById("username").value;
-    this.password = password; //document.getElementById("password").value;
-    this.note = note;
+function customerFn(f_name,l_name,email_id,password,notes){
+    this.firstname = f_name;
+    this.lastname = l_name; 
+    this.email_id = email_id; 
+    this.password = password; 
+    this.note = notes;
 }
 
-User.prototype.getFirstName = function(){
-    return this.firstname;
+customerFn.prototype.getFirstName = function(){
+    return this.f_name;
 }
 
-User.prototype.getLastName = function(){
-    return this.lastname;
+customerFn.prototype.getLastName = function(){
+    return this.l_name;
 }
 
-User.prototype.getemail_id = function(){
+customerFn.prototype.getemail_id = function(){
     return this.email_id;
 }
 
-User.prototype.getpassword = function(){
+customerFn.prototype.getpassword = function(){
    return this.password;
 }
 
-User.prototype.getnote = function(){
+customerFn.prototype.getnote = function(){
     return this.note;
 }
 
 
-User.prototype.setFirstName = function(firstname){
-    this.firstname = firstname;
+customerFn.prototype.setFirstName = function(firstname){
+    this.f_name = firstname;
 }
 
-User.prototype.setLastName = function(lastname){
-    this.lastname = lastname;
+customerFn.prototype.setLastName = function(lastname){
+    this.l_name = lastname;
 }
 
-User.prototype.setemail_id = function(email_id){
+customerFn.prototype.setemail_id = function(email_id){
     this.email_id = email_id;
 }
 
-User.prototype.setpassword = function(password){
+customerFn.prototype.setpassword = function(password){
    this.password = password;
 }
 
-User.prototype.setnote = function(note){
+customerFn.prototype.setnote = function(note){
     this.note = note;
 }
